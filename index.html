@@ -19,11 +19,14 @@
 <body>
     <!-- Sidebar -->
     <aside class="sidebar">
+        <!-- Sidebar - Header -->
         <div class="sidebar-header">
             <a href=""><img src="./icons/icon-side-bars.svg" alt="Icon side bars next to logo"></a>
             <a href=""><img src="./icons/icon-logo-kanban.svg" alt="Logo"></a>
         </div>
+        <!-- Sidebar - Main Content -->
         <div class="sidebar-main-content">
+            <!-- Sidebar - Main Content - Top -->
             <div class="sidebar-top">
                 <h4>All Boards (3)</h4>
                 <button class="btn-board-cards heading-m">
@@ -43,6 +46,7 @@
                     + Create New Board
                 </button>
             </div>
+            <!-- Sidebar - Main Content - Bottom -->
             <div class="sidebar-bottom">
                 <div class="dark-light-toggle">
                     <img src="./icons/icon-light-theme.svg" alt="Icon Light mode">
@@ -58,24 +62,64 @@
     <hr>
     <!-- Main -->
     <main class="main">
-        <!-- main navbar -->
+        <!-- Main - Navbar -->
         <nav class="navbar">
+            <!-- Main - Navbar - Left -->
             <div class="navbar-left">
                 <img src="./icons/icon-side-bars.svg" alt="">
                 <h1 class="heading-xl">Platform Launch <img src="./icons/icon-arrow-down.svg" alt=""></h1>
             </div>
+            <!-- Main - Navbar - Right -->
             <div class="navbar-right">
-                <button class="btn-primary-l">+Add New Task</button>
+                <button class="btn-primary-l" id="btnAddNewTask">+Add New Task</button>
                 <img src="./icons/icon-add-button-phone-version.svg" class="icon-add-button-phone-version">
                 <img src="./icons/icon-three-dots.svg" alt="">
             </div>
         </nav>
-        <!-- main content -->
+        <!-- Main - Content -->
         <section class="main-content">
             <h2 class="heading-l">This board is empty. Create a new column to get started.</h2>
             <button class="btn-primary-l">+Add New Column</button>
         </section>
     </main>
+    <!-- Add New Task Section -->
+    <section id="addNewTask">
+        <section class="add-new-task">
+            <h2 class="heading-l">Add New Task</h2>
+            <div class="title concepts">
+                <label class="body-m-paragraph">Title</label>
+                <input type="text" placeholder="e.g. Take coffee break">
+            </div>
+            <div class="description concepts">
+                <label class="body-m-paragraph">Description</label>
+                <textarea name="" id="" cols="30" rows="10" placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."></textarea>
+            </div>
+            <div class="subtasks">
+                <label class="body-m-paragraph">Subtasks</label>
+                <div class="subtasks-input">
+                    <input type="text" placeholder="e.g. Make coffee">
+                    <img src="./icons/icon-close-x.svg" alt="">
+                </div>
+                <div class="subtasks-input">
+                    <input type="text" placeholder="e.g. Drink coffee & smile">
+                    <img src="./icons/icon-close-x.svg" alt="">
+                </div>
+                <button class="btn-secondary">+Add New Subtask</button>
+            </div>
+            <div class="status concepts">
+                <label class="body-m-paragraph">Status</label>
+                <select>
+                    <option class="body-l-paragraph" value="To Do">To Do</option>
+                    <option class="body-l-paragraph" value="Doing">Doing</option>
+                    <option class="body-l-paragraph" value="Done">Done</option>
+                </select>
+            </div>
+            <button class="btn-primary-s">Create Task</button>
+        </section>
+    </section>
+    
+    <!-- Javascript -->
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
