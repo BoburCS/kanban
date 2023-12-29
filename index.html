@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kanban</title>
+    <!-- FONT FAMILY - Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href=""><img src="./icons/icon-side-bars.svg" alt="Icon side bars next to logo"></a>
+            <a href=""><img src="./icons/icon-logo-kanban.svg" alt="Logo"></a>
+        </div>
+        <div class="sidebar-main-content">
+            <div class="sidebar-top">
+                <h4>All Boards (3)</h4>
+                <button class="btn-board-cards heading-m">
+                    <img src="./icons/icon-fluent-board-split-regular.svg" alt="Icon fluent board split">
+                    Platform Launch
+                </button>
+                <button class="btn-board-cards heading-m">
+                    <img src="./icons/icon-fluent-board-split-regular.svg" alt="Icon fluent board split">
+                    Marketing Plan
+                </button>
+                <button class="btn-board-cards heading-m">
+                    <img src="./icons/icon-fluent-board-split-regular.svg" alt="Icon fluent board split">
+                    Roadmap
+                </button>
+                <button class="btn-add-new-board-cards heading-m">
+                    <img src="./icons/icon-fluent-board-split-regular.svg" alt="Icon fluent board split">
+                    + Create New Board
+                </button>
+            </div>
+            <div class="sidebar-bottom">
+                <div class="dark-light-toggle">
+                    <img src="./icons/icon-light-theme.svg" alt="Icon Light mode">
+                    <img src="./icons/icon-dark-theme.svg" alt="Icon Dark mode">
+                </div>
+                <div class="hide-sidebar">
+                    <img src="./icons/icon-eye-slash.svg" alt="Icon eye slash">
+                    <h3 class="heading-m">Hide Sidebar</h3>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <hr>
+    <!-- Main -->
+    <main class="main">
+        <!-- main navbar -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="./icons/icon-side-bars.svg" alt="">
+                <h1 class="heading-xl">Platform Launch <img src="./icons/icon-arrow-down.svg" alt=""></h1>
+            </div>
+            <div class="navbar-right">
+                <button class="btn-primary-l">+Add New Task</button>
+                <img src="./icons/icon-add-button-phone-version.svg" class="icon-add-button-phone-version">
+                <img src="./icons/icon-three-dots.svg" alt="">
+            </div>
+        </nav>
+        <!-- main content -->
+        <section class="main-content">
+            <h2 class="heading-l">This board is empty. Create a new column to get started.</h2>
+            <button class="btn-primary-l">+Add New Column</button>
+        </section>
+    </main>
+</body>
+
+</html>

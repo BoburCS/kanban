@@ -1,0 +1,173 @@
+/* Main Designs for all web pages */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Global Variables */
+:root {
+  /* Colors */
+  --Main-Purple: #635fc7;
+  --main-purple-hover: #a8a4ff;
+  --Black: #000112;
+  --very-dark-grey-dark-bg: #20212c;
+  --Dark-Grey: #2b2c37;
+  --lines-dark: #3e3f4e;
+  --Medium-Grey: #828fa3;
+  --lines-light: #e4ebfa;
+  --White: #fff;
+  --light-grey-light-bg: #f4f7fd;
+  --Red: #ea5555;
+  --red-hover: #ff9898;
+}
+
+/* Heading (XL) */
+.heading-xl {
+  color: var(--Black, #000112);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Heading (L) */
+.heading-l {
+  color: var(--Black, #000112);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Heading (M) */
+.heading-m {
+  color: var(--Black, #000112);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Heading (S) */
+h4 {
+  color: var(--Medium-Grey, #828fa3);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
+
+/* Body (L) */
+.body-l-paragraph {
+  color: var(--Dark-Grey, #2b2c37);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+}
+
+/* Body (M) */
+.body-m-paragraph {
+  color: var(--Dark-Grey, #2b2c37);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Button Primary (L) */
+.btn-primary-l {
+  color: var(--White, #fff);
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 255px;
+  height: 48px;
+  border: none;
+  border-radius: 24px;
+  outline: none;
+  background-color: var(--Main-Purple, #635fc7);
+  cursor: pointer;
+}
+
+.btn-primary-l:hover {
+  background-color: var(--main-purple-hover, #a8a4ff);
+}
+
+/* Button Primary (S) */
+.btn-primary-s {
+  color: var(--White, #fff);
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  width: 255px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  background-color: var(--Main-Purple, #635fc7);
+  cursor: pointer;
+}
+
+.btn-primary-s:hover {
+  background-color: var(--main-purple-hover, #a8a4ff);
+}
+
+/* Button Secondary */
+.btn-secondary {
+  color: var(--Main-Purple, #635fc7);
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  width: 255px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  background-color: rgba(99, 95, 199, 0.1);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(99, 95, 199, 0.2);
+}
+
+/* Button Destructive */
+.btn-destructive {
+  color: var(--White, #fff);
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  width: 255px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  background-color: var(--Red, #ea5555);
+  cursor: pointer;
+}
+
+.btn-destructive:hover {
+  background-color: var(--red-hover, #ff9898);
+}
