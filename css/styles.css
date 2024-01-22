@@ -54,7 +54,7 @@
 }
 
 /* Heading (S) */
-h4 {
+.heading-s {
 	color: var(--Medium-Grey, #828fa3);
 	font-family: "Plus Jakarta Sans", sans-serif;
 	font-size: 12px;
@@ -93,8 +93,7 @@ h4 {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	width: 255px;
-	height: 48px;
+	padding: 15px 25px;
 	border: none;
 	border-radius: 24px;
 	outline: none;
