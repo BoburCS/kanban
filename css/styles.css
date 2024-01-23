@@ -19,19 +19,12 @@
 	--White: #fff;
 	--Red: #ea5555;
 	--red-hover: #ff9898;
-}
-
-:root[data-theme = "light"] {
 	--Black: #000112;
-	--White: #fff;
 	--light-grey-light-bg: #f4f7fd;
-}
-
-:root[data-theme = "night"] {
-	--White: #fff;
 	--Dark-Grey: #2b2c37;	
 	--very-dark-grey-dark-bg: #20212c;
 }
+
 
 /* Heading (XL) */
 .heading-xl {

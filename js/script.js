@@ -18,7 +18,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+const btnSidebarOpen = document.querySelector(".sidebar-open-btn");
+const btnSidebarClose = document.querySelector(".sidebar-close-btn");
+const sidebar = document.querySelector(".sidebar");
 
+btnSidebarOpen.addEventListener("click", function () 
+{
+    sidebar.classList.add("sidebar-visible");
+    btnSidebarOpen.style.display = "none";
+});
+
+btnSidebarClose.addEventListener("click", function () 
+{
+    sidebar.classList.remove("sidebar-visible");
+    btnSidebarOpen.style.display = "block";
+    
+});
 
 
 
