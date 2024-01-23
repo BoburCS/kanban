@@ -34,11 +34,14 @@ btnSidebarClose.addEventListener("click", function ()
     btnSidebarOpen.classList.remove("sidebar-open-btn-not-visible");    
 });
 
-const itemCards = document.querySelector(".item-cards");
+const itemCards = document.querySelectorAll(".item-cards");
 const infoTasks = document.querySelector(".info-tasks");
 
-itemCards.addEventListener("click", function () 
+itemCards.forEach((itemCard) => 
 {
-    infoTasks.classList.add("info-tasks-visible");
+    itemCard.addEventListener("click", function () 
+    {
+        infoTasks.classList.add("info-tasks-visible");
+    });
 });
 
