@@ -25,16 +25,20 @@ const sidebar = document.querySelector(".sidebar");
 btnSidebarOpen.addEventListener("click", function () 
 {
     sidebar.classList.add("sidebar-visible");
-    btnSidebarOpen.style.display = "none";
+    btnSidebarOpen.classList.add("sidebar-open-btn-not-visible");
 });
 
 btnSidebarClose.addEventListener("click", function () 
 {
     sidebar.classList.remove("sidebar-visible");
-    btnSidebarOpen.style.display = "block";    
+    btnSidebarOpen.classList.remove("sidebar-open-btn-not-visible");    
 });
 
+const itemCards = document.querySelector(".item-cards");
+const infoTasks = document.querySelector(".info-tasks");
 
-
-
+itemCards.addEventListener("click", function () 
+{
+    infoTasks.classList.add("info-tasks-visible");
+});
 
