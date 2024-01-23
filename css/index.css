@@ -283,15 +283,57 @@
 } 
 
 .main-content {
+	width: 100%;
 	background-color: var(--secondary-bg-clr);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	transition: 0.3s;
 }
 
+.main-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 32px;
+}
+
+.main-empty h2 {
+	color: var(--Medium-Grey, #828fa3);
+	text-align: center;
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	width: 90%;
+}
+
+.main-empty > button {
+	color: var(--White, #fff);
+	text-align: center;
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	padding: 15px 18px;
+	border: none;
+	border-radius: 24px;
+	outline: none;
+	background-color: var(--Main-Purple, #635fc7);
+	cursor: pointer;
+}
+
+.main-empty > button:hover {
+	background-color: var(--main-purple-hover, #a8a4ff);
+}
+
 @media screen and (max-width: 767px) {
-	main {
+	.main {
 		grid-template-columns: 1fr;
 	}
-	.sidebar-display {
+	.sidebar {
 		display: none;
 	}
 }
