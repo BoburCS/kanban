@@ -31,8 +31,7 @@ btnSidebarOpen.addEventListener("click", function ()
 btnSidebarClose.addEventListener("click", function () 
 {
     sidebar.classList.remove("sidebar-visible");
-    btnSidebarOpen.style.display = "block";
-    
+    btnSidebarOpen.style.display = "block";    
 });
 
 

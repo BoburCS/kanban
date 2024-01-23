@@ -333,7 +333,8 @@
 	.main {
 		grid-template-columns: 1fr;
 	}
-	.sidebar {
+	.sidebar,
+	.sidebar-open-btn {
 		display: none;
 	}
 }
