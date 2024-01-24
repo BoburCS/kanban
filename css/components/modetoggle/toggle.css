@@ -1,0 +1,53 @@
+.mode-toggle {
+    width: 250px;
+    height: 48px;
+    background-color: var(--secondary-bg-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.4s;
+}
+
+.switcher {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.switcher input {
+    display: none;
+}
+
+.switcher .slider {
+    border-radius: 34px;
+    background-color: var(--Main-Purple, #635fc7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: var(--White, #fff);
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+}
+
+.switcher input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .mode-toggle {
+        width: 235px;
+    }    
+}
