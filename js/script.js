@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
         checkbox.addEventListener("change", function () {
             if (this.checked) {
                 body.classList.add("dark-mode");
-                svgLogo.src = "../icons/icon-kanban-logo-dark.svg";
+                svgLogo.src = "../assets/icons/icon-logo-kanban-dark.svg";
             } else {
                 body.classList.remove("dark-mode");
-                svgLogo.src = "../icons/icon-logo-kanban.svg";
+                svgLogo.src = "../assets/icons/icon-logo-kanban.svg";
             }
         });
     } else {
