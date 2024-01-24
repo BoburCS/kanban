@@ -3,7 +3,6 @@
 	--primary-bg-clr: #fff;
 	--secondary-bg-clr: #f4f7fd;
 	--third-bg-clr: rgba(255, 255, 255, 0.5); 
-	--fourth-bg-clr: #f4f7fd;
 	--lines-clr: #e4ebfa;
 }
 
@@ -12,7 +11,6 @@
 	--primary-bg-clr: #2b2c37;	
 	--secondary-bg-clr: #20212c;
 	--third-bg-clr: rgba(43, 44, 55, 0.5);
-	--fourth-bg-clr: #20212c;
 	--lines-clr: #3e3f4e;
 }
 
@@ -67,8 +65,20 @@
 	gap: 25px;
 }
 
-.navbar-right .icon-add-button-phone-version {
+.navbar-right .btnAddTaskPhone {
+	color: var(--White, #fff);
+	font-size: 20px;
+	padding: 10px 18px;
+	border: none;
+	border-radius: 24px;
+	outline: none;
+	background-color: var(--Main-Purple);
 	display: none;
+	cursor: pointer;
+}
+
+.btnAddTaskPhone:hover {
+	background-color: var(--main-purple-hover, #a8a4ff);
 }
 
 @media screen and (max-width: 767px) {
@@ -77,7 +87,7 @@
 		display: none;
 	}
 	.navbar-left img,
-	.navbar-right .icon-add-button-phone-version {
+	.navbar-right .btnAddTaskPhone {
 		display: inline-block;
 	}
 	.navbar .navbar-links {
@@ -120,6 +130,52 @@
 	position: relative;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
+}
+
+.navbar-links-phone {
+	padding: 16px 0;
+	width: 264px;
+	height: auto;
+	background-color: var(--primary-bg-clr);
+	position: absolute;
+	top: 16px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.navbar-links-phone-content {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.navbar-links-phone-content h1 {
+	color: var(--Medium-Grey, #828fa3);
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 2.4px;
+	padding-left: 24px;
+}
+
+.boards-cards-phone {
+	color: var(--Medium-Grey);
+	width: 90%;
+	padding: 16px 24px;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.boards-cards-phone:hover {
+	color: var(--White, #fff);
+	background-color: var(--Main-Purple);
 }
 
 .sidebar {
@@ -538,7 +594,7 @@
 	width: 100%;
 	height: auto;
 	border-radius: 4px;
-	background-color: var(--fourth-bg-clr);
+	background-color: var(--secondary-bg-clr);
 	display: flex; 
 	align-items: center;
 	gap: 16px;
