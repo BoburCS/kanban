@@ -167,26 +167,40 @@
                 <div class="info-tasks-header">
                     <h2>Research pricing points of various competitors and trial different business models</h2>
                     <img src="./icons/icon-three-dots.svg" alt="three dots">
+
+                    <div class="btn-edit-delete">
+                        <span class="editTask">Edit Task</span>
+                        <span class="deleteTask">Delete Task</span>
+                    </div>                    
+
+                    
                 </div>
                 <p>We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.</p>
                 <div class="subtasks">
                     <p>Subtasks (2 of 3)</p>
                     <div class="checkbox-container">
                         <div class="checkbox-cards">
-                            <input type="checkbox">
-                            <p>Research competitor pricing and business models</p>
+                            <input type="checkbox" id="subtasks1">
+                            <label for="subtasks1">Research competitor pricing and business models</label>
                         </div>
                         <div class="checkbox-cards">
-                            <input type="checkbox">
-                            <p>Research competitor pricing and business models</p>
+                            <input type="checkbox" id="subtasks2">
+                            <label for="subtasks2">Research competitor pricing and business models</label>
                         </div>
                         <div class="checkbox-cards">
-                            <input type="checkbox">
-                            <p>Research competitor pricing and business models</p>
+                            <input type="checkbox" id="subtasks3">
+                            <label for="subtasks3">Research competitor pricing and business models</label>
                         </div>
                     </div>
                 </div>
-            
+                <div class="subtasks-category">
+                    <p>Current Status</p>
+                    <select>
+                        <option value="todo">Todo</option>
+                        <option value="doing">Doing</option>
+                        <option value="done">Done</option>
+                    </select>
+                </div>
             </div>
         </div>
 

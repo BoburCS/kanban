@@ -3,6 +3,7 @@
 	--primary-bg-clr: #fff;
 	--secondary-bg-clr: #f4f7fd;
 	--third-bg-clr: rgba(255, 255, 255, 0.5); 
+	--fourth-bg-clr: #f4f7fd;
 	--lines-clr: #e4ebfa;
 }
 
@@ -11,6 +12,7 @@
 	--primary-bg-clr: #2b2c37;	
 	--secondary-bg-clr: #20212c;
 	--third-bg-clr: rgba(43, 44, 55, 0.5);
+	--fourth-bg-clr: #20212c;
 	--lines-clr: #3e3f4e;
 }
 
@@ -432,6 +434,7 @@
 	padding: 32px;
 	width: 480px;
 	height: auto;
+	border-radius: 6px;
 	background-color: var(--primary-bg-clr);
 	position: absolute;
 	top: -1000px;
@@ -447,9 +450,11 @@
 .info-tasks-content {
 	width: 100%;
 	height: 100%;
+	border-radius: 6px;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+	position: relative;
 }
 
 .info-tasks-header {
@@ -465,6 +470,39 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+}
+
+.btn-edit-delete {
+	padding: 0;
+	width: 0;
+	border-radius: 8px;
+	background-color: var(--primary-bg-clr);
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	position: absolute;
+	top: 15%;
+	right: -30%;
+	overflow: hidden;
+}
+
+.btn-edit-delete-visible {
+	padding: 16px;
+	width: 192px;
+}
+
+.btn-edit-delete span {
+	color: var(--Medium-Grey, #828fa3);
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 23px;
+	cursor: pointer;
+}
+
+.btn-edit-delete .deleteTask {
+	color: var(--Red, #ea5555);
 }
 
 .info-tasks-content > p {
@@ -494,13 +532,65 @@
 
 .checkbox-cards {
 	padding: 12px;
-	width: 90%;
+	width: 100%;
+	height: auto;
 	border-radius: 4px;
-	background-color: var(--light-grey-light-bg, #f4f7fd);
-	display: flex;
+	background-color: var(--fourth-bg-clr);
+	display: flex; 
 	align-items: center;
 	gap: 16px;
 }
+
+.checkbox-cards:hover {
+	background-color: rgba(99, 95, 199, 0.25);
+}
+
+.checkbox-cards label {
+	color: var(--txt-clr);
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.label-checked {
+	color: var(--txt-clr);
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.subtasks-category {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.subtasks-category p {
+	color: var(--Medium-Grey, #828fa3);
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.subtasks-category select {
+	color: var(--txt-clr);
+	padding: 8px 16px;
+	width: 100%;
+	border: 1px solid var(--Main-Purple, #635fc7);
+	border-radius: 4px;
+	outline: none;
+	background-color: var(--primary-bg-clr);
+}
+
+
 
 @media screen and (max-width: 767px) {
 	.main-content {
