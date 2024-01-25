@@ -1,5 +1,5 @@
 .navbar * {
-    transition: 0.4s;
+    transition: 0.4s linear;
 }
 
 .navbar {
@@ -7,6 +7,7 @@
     background-color: var(--primary-bg-clr);
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .navbar-logo {
@@ -41,6 +42,63 @@
     display: flex;
     align-items: center;
     gap: 25px;
+}
+
+.sidebar-phone {
+    margin-top: 16px;
+    padding: 16px 0;
+    width: 264px;
+    background-color: var(--primary-bg-clr);
+    border-radius: 8px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.sidebar-phone-visible {
+    display: inline-block;
+}
+
+.sidebar-phone .heading-s {
+    margin-bottom: 20px;
+    padding-left: 24px;
+}
+
+.btn-boards {
+    color: var(--Medium-Grey, #828fa3);
+    padding: 15px 24px;
+    width: 240px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-boards:hover {
+    color: var(--White, #fff);
+    background-color: var(--Main-Purple, #635fc7);
+}
+
+.btn-boards:hover svg path {
+    fill: var(--White, #fff);
+}
+
+.btn-add-new-board {
+    color: var(--Main-Purple, #635fc7);
+    padding: 15px 24px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mode-toggle {
+    margin: auto;
 }
 
 @media screen and (max-width: 767px) {
