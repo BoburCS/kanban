@@ -9,12 +9,12 @@ if (checkbox)
 		if (this.checked) 
         {
 			body.classList.add("dark-mode");
-            logoSVG.src = "../../../assets/icons/icon-logo-kanban-dark.svg";
+            logoSVG.src = "../../../assets/favicon/icon-logo-kanban-dark.svg";
 		} 
         else 
         {
 			body.classList.remove("dark-mode");
-            logoSVG.src = "../../../assets/icons/icon-logo-kanban.svg";
+            logoSVG.src = "../../../assets/favicon/icon-logo-kanban.svg";
 		}
 	});
 }
