@@ -1,11 +1,9 @@
 "use strict";
 
-let boardsTitle = 
-[
-    {title: "Platform Launch"},
-    {title: "Marketing Plan"},
-    {title: "Roadmap"}
-];
+import { boardsDataArray } from "../data.js";
+import { addNewBoardFunc } from "../components/sidebar.js";
+
+console.log(addNewBoardFunc);
 
 const createEl = (type, className) =>
 {
@@ -30,7 +28,7 @@ const navbarLinks = function ()
 
     let navbarLeft = createEl("div", "navbar-left");
     let h1 = createEl("h1", "heading-xl");
-    h1.textContent = `${boardsTitle[0].title}`;
+    h1.textContent = `${addNewBoardFunc[0].title}`;
     navbarLeft.append(h1);
 
     let navbarRight = createEl("div", "navbar-right");

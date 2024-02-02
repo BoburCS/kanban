@@ -38,6 +38,42 @@
 	background-color: var(--Main-Purple, #635fc7);
 }
 
+.add-new-board {
+    color: var(--Main-Purple, #635fc7);
+	padding: 15px 30px;
+	width: 276px;
+    background: transparent;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	cursor: pointer;
+}
+
+.addNewBoardForm {
+    padding: 32px;
+    width: 480px;
+    min-height: 430px;
+    border-radius: 8px;
+    background-color: var(--White, #fff);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.name-new-board input {
+    padding: 8px 12px;
+    width: 100%;
+    outline: none;
+}
+
+.name-new-board button {
+    width: 100%;
+}
+
 @media screen and (max-width: 767px) {
 
 }
@@ -46,7 +82,7 @@
     .sidebar {
         width: 260px;
     }
-    .board {
+    .board, .add-new-board {
         width: 240px;
     }
 }
