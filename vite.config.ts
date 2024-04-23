@@ -13,6 +13,9 @@ export default defineConfig({
             "@ui": path.resolve(__dirname, "src/components/ui"),
             "@context": path.resolve(__dirname, "src/context"),
             "@features": path.resolve(__dirname, "src/features"),
+            "@elements": path.resolve(__dirname, "src/components/elements"),
+            "@lib": path.resolve(__dirname, "src/lib"),
+            "@app": path.resolve(__dirname, "src/app"),
         },
     },
 });
