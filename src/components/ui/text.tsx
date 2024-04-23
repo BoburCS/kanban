@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../lib/utils";
+import { cn } from "@lib/utils";
 
 interface TextProps {
     children: ReactNode;

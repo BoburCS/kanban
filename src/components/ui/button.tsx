@@ -1,10 +1,10 @@
 import { ReactNode, ButtonHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../lib/utils";
+import { cn } from "@lib/utils";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
-    variant?: "primary" | "l" | "m" | "s";
+    variant?: "primary" | "secondary" | "destructive";
     className?: string;
 }
 
@@ -29,10 +29,10 @@ const headingVariants = cva(
     {
         variants: {
             variant: {
-                primary: "bg-primary rounded-full hover:bg-primaryHover",
-                l: "text-lg",
-                m: "text-[15px]",
-                s: "text-xs text-mediumGrey dark:text-mediumGrey tracking-[2.4px]",
+                primary:
+                    "bg-primary text-white rounded-full hover:bg-primaryHover",
+                secondary: "bg-slate-200 rounded-full",
+                destructive: "px-4 py-2 bg-destructive text-white rounded-full",
             },
             defaultVariants: {
                 variant: "primary",

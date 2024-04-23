@@ -5,29 +5,35 @@
 @layer base {
     :root {
         --primary: 242, 48%, 58%; /* purple */
-        --primary-hover: #A8A4FF; /* purple hover */
+        --primary-hover: #a8a4ff; /* purple hover */
 
         --lines: #e4ebfa;
         --secondary: #f4f7fd;
 
         --medium-grey: #828fa3;
         --dark-grey: #2b2c37;
-        
+
         --very-dark-grey: #20212c;
         --black: #000112;
 
-        --destructive: 0, 78%, 63%; /* red */
+        --destructive: #EA5555; /* red */
         --destructive-hover: 0, 100%, 80%; /* red hover */
+
+        --linear-gradient: linear-gradient(
+            180deg,
+            #e9effa 0%,
+            rgba(233, 239, 250, 0.5) 100%
+        );
     }
 
     .dark {
         --lines: #3e3f4e;
+        --linear-gradient: linear-gradient(
+            180deg,
+            rgba(43, 44, 55, 0.25) 0%,
+            rgba(43, 44, 55, 0.125) 100%
+        );
         /* --secondary: #2b2c37; */
-        /* --primary: 210 40% 98%; */
-        /* --primary-foreground: 222.2 47.4% 11.2%; */
-
-        /* --destructive: 0 62.8% 30.6%; */
-        /* --destructive-foreground: 210 40% 98%; */
     }
 }
 
@@ -35,6 +41,20 @@
     * {
         @apply font-PlusJakartaSans;
     }
+}
+
+.modal-overlay {
+    @apply absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center bg-black bg-opacity-70;
+}
+
+.modal {
+    @apply w-[480px] rounded-lg border-2 border-solid border-white bg-white p-8;
+}
+
+input,
+textarea,
+select {
+    @apply bg-transparent outline-none;
 }
 
 .icon {

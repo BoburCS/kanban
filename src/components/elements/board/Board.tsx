@@ -1,23 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../app/store";
-import { InitialStateProps, resetActiveBoard, setActiveBoard } from "@features/boardSlice";
-import Heading from "../heading";
+import { RootState } from "@app/store";
+import { InitialStateProps, resetActiveBoard, setActiveBoard, BoardProps } from "@features/boardSlice";
+import Heading from "@ui/heading";
 import BoardIcon from "@icons/board.svg";
 import BoardIconWhite from "@icons/board-active.svg";
 
-interface BoardProps {
-    board: {
-        id: string;
-        title: string;
-    };
-}
-
-export default function Board({ board }: BoardProps) {
-    const { id, title } = board;
+export default function Board({ board }: { board: BoardProps }) {
+    const { id, name } = board;
     const dispatch = useDispatch();
     const { activeBoardId } = useSelector((state: RootState) => state.board) as InitialStateProps;
 
-    const handleClick = (board: { id: string, title: string }) => {
+    const handleClick = (board: BoardProps) => {
         if (activeBoardId === id) {
             dispatch(resetActiveBoard());
             return;
@@ -38,7 +31,7 @@ export default function Board({ board }: BoardProps) {
                 variant="m"
                 className={`${activeBoardId === id ? "text-white dark:text-white" : "text-mediumGrey dark:text-mediumGrey"}`}
             >
-                {title}
+                {name}
             </Heading>
         </div>
     );

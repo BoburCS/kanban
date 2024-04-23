@@ -21,7 +21,7 @@ module.exports = {
                     DEFAULT: "var(--primary-hover)",
                 },
                 destructive: {
-                    DEFAULT: "hsl(var(--destructive))",
+                    DEFAULT: "var(--destructive)",
                     foreground: "hsl(var(--destructive-foreground))",
                 },
                 mediumGrey: {
@@ -39,6 +39,9 @@ module.exports = {
                 veryDarkGrey: {
                     DEFAULT: "var(--very-dark-grey)",
                 },
+                linearGradient: {
+                    DEFAULT: "var(--linear-gradient)",
+                }
             },
             keyframes: {
                 "accordion-down": {

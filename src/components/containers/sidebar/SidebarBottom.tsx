@@ -10,7 +10,7 @@ export default function SidebarBottom() {
     const { handleSidebarState } = useStateProvider();
 
     return (
-        <div className="flex w-full flex-col gap-2 self-center px-6">
+        <div className="flex w-full flex-col gap-2 self-center px-6 pb-8">
             <div className="flex w-full items-center justify-center gap-6 rounded bg-secondary py-4 dark:bg-veryDarkGrey">
                 <img src={Sun} alt="Sun Icon" />
 

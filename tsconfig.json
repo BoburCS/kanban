@@ -29,6 +29,9 @@
             "@ui/*": ["src/components/ui/*"],
             "@context/*": ["src/context/*"],
             "@features/*": ["src/features/*"],
+            "@elements/*": ["src/components/elements/*"],
+            "@lib/*": ["src/lib/*"],
+            "@app/*": ["src/app/*"]
         }
     },
     "include": ["src"],
