@@ -1,10 +1,31 @@
-import { TaskTypes } from "@features/boardSlice";
+import { TaskTypes } from "src/types";
 import Heading from "@ui/heading";
 import Text from "@ui/text";
+import { useDispatch } from "react-redux";
+import { showModal } from "@features/modalSlice";
 
-export default function Task({ title, subTasks }: TaskTypes) {
+export default function Task({
+    id,
+    title,
+    description,
+    subTasks,
+    status,
+}: TaskTypes) {
+    const dispatch = useDispatch();
+    const handleClick = (id: string) => {
+        const payload = {
+            title: "",
+            modalType: "ShowTask",
+            task: { id, title, description, subTasks, status },
+        };
+        dispatch(showModal(payload));
+    };
+
     return (
-        <div className="w-full cursor-pointer rounded bg-white px-4 py-6 dark:bg-darkGrey">
+        <div
+            onClick={() => handleClick(id)}
+            className="w-full cursor-pointer rounded bg-white px-4 py-6 dark:bg-darkGrey"
+        >
             <Heading variant="m">{title}</Heading>
             <Text
                 variant="medium"

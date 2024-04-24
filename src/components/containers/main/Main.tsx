@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@app/store";
-import { InitialStateProps } from "@features/boardSlice";
+import { BoardStateTypes } from "src/types";
 import Column from "./Column";
 import Button from "@ui/button";
 import Heading from "@ui/heading";
@@ -8,7 +8,7 @@ import Heading from "@ui/heading";
 export default function Main() {
     const { activeBoard } = useSelector(
         (state: RootState) => state.board,
-    ) as InitialStateProps;
+    ) as BoardStateTypes;
 
     return (
         <div className="flex w-full flex-1 flex-grow items-center justify-center bg-secondary dark:bg-veryDarkGrey">

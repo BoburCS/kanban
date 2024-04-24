@@ -6,11 +6,11 @@ import Text from "@ui/text";
 import Delete from "@icons/delete.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@app/store";
-import { InitialStateProps } from "@features/boardSlice";
 import { addTask } from "@features/boardSlice";
 import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
 import { closeModal } from "@features/modalSlice";
+import { BoardStateTypes } from "src/types";
 
 interface SubTaskProps {
     id: string;
@@ -51,7 +51,7 @@ export default function AddTaskForm() {
 
     const { activeBoardId, activeBoard } = useSelector(
         (state: RootState) => state.board,
-    ) as InitialStateProps;
+    ) as BoardStateTypes;
 
     const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -108,7 +108,9 @@ export default function AddTaskForm() {
             ...prevState,
             content: {
                 ...prevState.content,
-                subTasks: prevState.content.subTasks.filter((subTask) => subTask.id !== id),
+                subTasks: prevState.content.subTasks.filter(
+                    (subTask) => subTask.id !== id,
+                ),
             },
         }));
     };

@@ -1,5 +1,5 @@
 import Task from "@elements/task";
-import { ColumnTypes } from "@features/boardSlice";
+import { ColumnTypes } from "src/types";
 import Heading from "@ui/heading";
 
 const colors = ["bg-cyan-500", "bg-purple-500", "bg-teal-500"]; 
