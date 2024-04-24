@@ -31,7 +31,9 @@
             "@features/*": ["src/features/*"],
             "@elements/*": ["src/components/elements/*"],
             "@lib/*": ["src/lib/*"],
-            "@app/*": ["src/app/*"]
+            "@app/*": ["src/app/*"],
+            "@services/*": ["src/services/*"],
+            "@types/*": ["src/types/*"],
         }
     },
     "include": ["src"],

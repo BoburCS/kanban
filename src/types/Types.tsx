@@ -25,7 +25,7 @@ export interface BoardTypes {
 }
 
 export interface BoardStateTypes {
-    boards: BoardTypes[];
+    // boards: BoardTypes[];
     activeBoard: BoardTypes | null;
     activeBoardId: string;
 }

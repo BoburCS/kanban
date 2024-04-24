@@ -1,11 +1,25 @@
+import { useEffect, useState } from "react";
 import Task from "@elements/task";
-import { ColumnTypes } from "src/types";
 import Heading from "@ui/heading";
+import { useGetTasksQuery } from "@services/taskApi";
+import { useSelector } from "react-redux";
+import { RootState } from "@app/store";
 
 const colors = ["bg-cyan-500", "bg-purple-500", "bg-teal-500"]; 
 
-export default function Column({ name, tasks }: ColumnTypes) {
+export default function Column({ name }: any) {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    const [tasks, setTasks] = useState([]);
+    const { activeBoardId } = useSelector((state: RootState) => state.board);
+    const { data, isSuccess } = useGetTasksQuery(activeBoardId);
+
+    useEffect(() => {
+        if (isSuccess) {
+            setTasks(data.filter((task: any) => task.status === name));
+        }
+    }, [data, name, isSuccess]);
+
     
     return (
         <div className="flex w-[280px] flex-col gap-6">

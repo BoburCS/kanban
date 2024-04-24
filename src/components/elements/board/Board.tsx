@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@app/store";
-import { InitialStateProps, resetActiveBoard, setActiveBoard, BoardProps } from "@features/boardSlice";
+import { resetActiveBoard, setActiveBoard } from "@features/boardSlice";
 import Heading from "@ui/heading";
 import BoardIcon from "@icons/board.svg";
 import BoardIconWhite from "@icons/board-active.svg";
+import { BoardTypes, BoardStateTypes } from "../../../types";
 
-export default function Board({ board }: { board: BoardProps }) {
+export default function Board({ board }: { board: BoardTypes }) {
     const { id, name } = board;
     const dispatch = useDispatch();
-    const { activeBoardId } = useSelector((state: RootState) => state.board) as InitialStateProps;
+    const { activeBoardId } = useSelector(
+        (state: RootState) => state.board,
+    ) as BoardStateTypes;
 
-    const handleClick = (board: BoardProps) => {
+    const handleClick = (board: BoardTypes) => {
         if (activeBoardId === id) {
             dispatch(resetActiveBoard());
             return;

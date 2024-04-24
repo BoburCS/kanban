@@ -1,16 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@app/store";
+import { useDispatch } from "react-redux";
 import { showModal } from "@features/modalSlice";
-import { BoardProps, InitialStateProps } from "@features/boardSlice";
+import { BoardTypes } from "src/types";
 import Board from "@elements/board/Board";
 import Heading from "@ui/heading";
 import BoardPurpleIcon from "@icons/board-purple.svg";
 
-export default function BoardList() {
+export default function BoardList({ boards }: { boards: BoardTypes[] }) {
     const dispatch = useDispatch();
-    const { boards } = useSelector(
-        (state: RootState) => state.board,
-    ) as InitialStateProps;
 
     const handleAddBoard = () => {
         const payload = {
@@ -28,7 +24,7 @@ export default function BoardList() {
             </Heading>
 
             <div>
-                {boards.map((board: BoardProps) => (
+                {boards.map((board: BoardTypes) => (
                     <Board board={board} key={board.id} />
                 ))}
             </div>

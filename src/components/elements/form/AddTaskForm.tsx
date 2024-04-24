@@ -1,3 +1,4 @@
+import React from "react";
 import Input from "@elements/input";
 import Textarea from "@elements/textarea";
 import Button from "@ui/button";
@@ -6,16 +7,10 @@ import Text from "@ui/text";
 import Delete from "@icons/delete.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@app/store";
-import { addTask } from "@features/boardSlice";
 import { nanoid } from "@reduxjs/toolkit";
-import React from "react";
 import { closeModal } from "@features/modalSlice";
 import { BoardStateTypes } from "src/types";
-
-interface SubTaskProps {
-    id: string;
-    placeholder: string;
-}
+import { useCreateTaskMutation } from "@services/taskApi";
 
 interface StatusProps {
     id: string;
@@ -24,6 +19,7 @@ interface StatusProps {
 
 export default function AddTaskForm() {
     const dispatch = useDispatch();
+    const [useCreateTask] = useCreateTaskMutation();
     const [state, setState] = React.useState({
         title: "Add New Task",
         content: {
@@ -49,7 +45,7 @@ export default function AddTaskForm() {
         },
     });
 
-    const { activeBoardId, activeBoard } = useSelector(
+    const { activeBoardId } = useSelector(
         (state: RootState) => state.board,
     ) as BoardStateTypes;
 
@@ -66,25 +62,14 @@ export default function AddTaskForm() {
         const subtasks = Object.keys(data)
             .filter((key) => key.startsWith("subtask"))
             .map((key) => ({ id: nanoid(), name: data[key] }));
-
-        const statuss = activeBoard?.columns.find(
-            (column) => column.name === data.status,
-        );
-
-        const newTask = {
-            id: nanoid(),
+        
+        useCreateTask({
             title: data.title,
             description: data.description,
-            subTasks: subtasks,
-        };
-
-        const payload = {
             boardId: activeBoardId,
-            columnId: statuss?.id,
-            task: newTask,
-        };
-
-        dispatch(addTask(payload));
+            subTasks: subtasks,
+            status: data.status,
+        });
         dispatch(closeModal());
     };
 
@@ -146,7 +131,7 @@ export default function AddTaskForm() {
                 <div className="flex flex-col gap-3">
                     {state.content.subTasks.length > 0
                         ? state.content.subTasks.map(
-                              (subTask: SubTaskProps, index) => (
+                              (subTask: any, index) => (
                                   <div
                                       className="flex items-center gap-4"
                                       key={subTask.id}

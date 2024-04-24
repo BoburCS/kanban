@@ -1,16 +1,17 @@
 import React from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import { addBoard } from "@features/boardSlice";
 import { closeModal } from "@features/modalSlice";
 import Input from "@elements/input";
 import Heading from "@ui/heading";
 import Text from "@ui/text";
 import Button from "@ui/button";
 import Delete from "@icons/delete.svg";
-import { BoardTypes, ColumnTypes } from "src/types";
+import { ColumnTypes } from "src/types";
+import { useCreateBoardMutation } from "@services/boardApi";
 
 export default function AddBoardForm() {
+    const [useCreateBoard] = useCreateBoardMutation();
     const [state, setState] = React.useState({
         title: "Add New Board",
         content: {
@@ -64,13 +65,10 @@ export default function AddBoardForm() {
             .filter((key) => key.startsWith("column"))
             .map((key) => ({ id: nanoid(), name: data[key] }));
 
-        const newBoard: BoardTypes = {
-            id: nanoid(),
+        useCreateBoard({
             name: data.name as string,
             columns: columns as ColumnTypes[],
-        };
-
-        dispatch(addBoard(newBoard));
+        });
         dispatch(closeModal());
     };
 
