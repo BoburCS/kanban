@@ -1,4 +1,4 @@
-// import { TaskTypes } from "src/types";
+import { TaskTypes } from "src/types";
 import Heading from "@ui/heading";
 import Text from "@ui/text";
 import { useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ export default function Task({
     subTasks,
     status,
     // boardId
-}: any) {
+}: TaskTypes) {
     const dispatch = useDispatch();
     const handleClick = (id: string) => {
         const payload = {

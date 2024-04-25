@@ -5,14 +5,14 @@ import { ModalState, closeModal } from "@features/modalSlice";
 
 import AddTaskForm from "@elements/form/AddTaskForm";
 import AddBoardForm from "@elements/form/AddBoardForm";
-import DeleteBoard from "@elements/popover";
+import DeleteBoard from "@elements/board/DeleteBoard";
 import TaskDetailsForm from "@elements/task/TaskDetailsForm";
 
 const modalForms = {
     AddTaskForm: AddTaskForm,
     AddBoardForm: AddBoardForm,
     DeleteBoard: DeleteBoard,
-    DeleteTask: DeleteBoard,
+    // DeleteTask: DeleteBoard,
     ShowTask: TaskDetailsForm,
 };
 

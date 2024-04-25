@@ -28,7 +28,19 @@ export const boardApi = createApi({
             }),
             invalidatesTags: ["Board"],
         }),
+        deleteBoard: builder.mutation({
+            query: (boardId: string | undefined) => ({
+                url: `/${boardId}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["Board"]
+        }),
     }),
 });
 
-export const { useGetBoardsQuery, useGetBoardQuery, useCreateBoardMutation } = boardApi;
+export const {
+    useGetBoardsQuery,
+    useGetBoardQuery,
+    useCreateBoardMutation,
+    useDeleteBoardMutation,
+} = boardApi;

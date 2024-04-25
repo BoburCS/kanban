@@ -22,7 +22,18 @@ export const taskApi = createApi({
             }),
             invalidatesTags: ["Task"],
         }),
+        deleteAllTasks: builder.mutation({
+            query: (boardId) => ({
+                url: `?boardId=${boardId}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["Task"],
+        }),
     }),
 });
 
-export const { useGetTasksQuery, useCreateTaskMutation } = taskApi;
+export const {
+    useGetTasksQuery,
+    useCreateTaskMutation,
+    useDeleteAllTasksMutation,
+} = taskApi;

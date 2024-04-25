@@ -1,37 +1,19 @@
 {
   "boards": [
     {
-      "id": "1abd",
+      "id": "37a5",
       "name": "web design",
       "columns": [
         {
-          "id": "dXD1_ac_mzrG-tjY6pk3K",
+          "id": "Fy6MkKRdcT7C20SuYJvh8",
           "name": "To Do"
         },
         {
-          "id": "zMMQr-lgG4VP5ugPxQcRY",
+          "id": "JPlKY3RLL4tmZV-kde5H2",
           "name": "Doing"
         },
         {
-          "id": "OsiQ8zPUhGzRAzjubO1DY",
-          "name": "Done"
-        }
-      ]
-    },
-    {
-      "id": "cdfa",
-      "name": "Roadmap",
-      "columns": [
-        {
-          "id": "sTWrXylnvC4FYt_9nKtwX",
-          "name": "To Do"
-        },
-        {
-          "id": "AB2O0Nc2VPfgvAAAq0v9I",
-          "name": "Doing"
-        },
-        {
-          "id": "dw0hUtUnGsj8zsF1LYdax",
+          "id": "KbAeCTGg1VCl08lPl3FDQ",
           "name": "Done"
         }
       ]
@@ -39,67 +21,25 @@
   ],
   "tasks": [
     {
-      "id": "8f7e",
-      "title": "Take coffee break",
-      "description": "its always good to have break",
-      "boardId": "1abd",
+      "id": "f3a5",
+      "title": "create design of kanban",
+      "description": "using figma",
+      "boardId": "37a5",
       "subTasks": [
         {
-          "id": "eNz5uJTjXTGq16rHFpxmV",
-          "name": "make coffee"
+          "id": "lftNSZKGcziiJGYGDo1G8",
+          "name": "dark mode"
         },
         {
-          "id": "oMWglmAnu2gKdQSkNCSoo",
-          "name": "make coffee"
+          "id": "NTSM7Qwy3SEYF7IujCXNL",
+          "name": "light mode"
         },
         {
-          "id": "TU1ZKgAW0bsaZMbDCv82N",
-          "name": "make coffee"
-        }
-      ],
-      "status": "Doing"
-    },
-    {
-      "id": "471b",
-      "title": "foe2fk",
-      "description": "f2e ofkeok 2o k2 ",
-      "boardId": "1abd",
-      "subTasks": [
-        {
-          "id": "GzewVtWCSZEXQAngY5ljk",
-          "name": "f3o kk oko3 "
-        },
-        {
-          "id": "6AalXmw5WYE_ZZTrHCzHV",
-          "name": "feo fkeo oefk "
-        },
-        {
-          "id": "toK-fWEffU3zzLWn7Grpd",
-          "name": "fe2iofk "
-        },
-        {
-          "id": "w5XYzuygH9aN4N8tluX-_",
-          "name": "f2ef2e"
+          "id": "LWDio4v9V6cOjqQizB9pZ",
+          "name": "mobile version"
         }
       ],
       "status": "To Do"
-    },
-    {
-      "id": "2090",
-      "title": "f3f3",
-      "description": "3f3f3",
-      "boardId": "1abd",
-      "subTasks": [
-        {
-          "id": "VcYnNZedmUkMV68RUIwng",
-          "name": "ff3"
-        },
-        {
-          "id": "eFxJzeK323_ZP-CsazCBV",
-          "name": "f3f"
-        }
-      ],
-      "status": "Doing"
     }
   ]
 }

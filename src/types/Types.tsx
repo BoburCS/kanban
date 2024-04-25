@@ -10,12 +10,13 @@ export interface TaskTypes {
     description: string;
     subTasks: SubtaskTypes[];
     status: string;
+    boardId: string;
 }
 
 export interface ColumnTypes {
     id: string;
     name: string;
-    tasks: TaskTypes[];
+    // tasks: TaskTypes[];
 }
 
 export interface BoardTypes {
@@ -25,7 +26,6 @@ export interface BoardTypes {
 }
 
 export interface BoardStateTypes {
-    // boards: BoardTypes[];
     activeBoard: BoardTypes | null;
     activeBoardId: string;
 }

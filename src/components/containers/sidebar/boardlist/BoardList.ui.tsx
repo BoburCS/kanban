@@ -1,22 +1,15 @@
-import { useDispatch } from "react-redux";
-import { showModal } from "@features/modalSlice";
-import { BoardTypes } from "src/types";
 import Board from "@elements/board/Board";
 import Heading from "@ui/heading";
+import { BoardTypes } from "../../../../types";
 import BoardPurpleIcon from "@icons/board-purple.svg";
 
-export default function BoardList({ boards }: { boards: BoardTypes[] }) {
-    const dispatch = useDispatch();
-
-    const handleAddBoard = () => {
-        const payload = {
-            title: "Add New Board",
-            modalType: "AddBoardForm",
-        };
-
-        dispatch(showModal(payload));
-    };
-
+export default function BoardListUI({
+    boards,
+    handleAddBoard,
+}: {
+    boards: BoardTypes[] | [];
+    handleAddBoard: () => void;
+}) {
     return (
         <div>
             <Heading variant="s" className="pb-5 pl-8">

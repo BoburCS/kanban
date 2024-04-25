@@ -1,13 +1,28 @@
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@app/store";
+import { useDeleteBoardMutation } from "@services/boardApi";
 import { closeModal } from "@features/modalSlice";
 import Button from "@ui/button";
 import Heading from "@ui/heading";
 import Text from "@ui/text";
-import { useDispatch } from "react-redux";
+import { useDeleteAllTasksMutation } from "@services/taskApi";
+import { resetActiveBoard } from "@features/boardSlice";
 
-export default function Popover() {
+export default function DeleteBoard() {
     const dispatch = useDispatch();
+    const { activeBoard } = useSelector((state: RootState) => state.board);
 
     const handleCancel = () => {
+        dispatch(closeModal());
+    };
+
+    const [useDeleteBoard] = useDeleteBoardMutation();
+    const [useDeleteAllTasks] = useDeleteAllTasksMutation();
+
+    const handleDeleteBoard = () => {
+        useDeleteBoard(activeBoard?.id);
+        useDeleteAllTasks(activeBoard?.id);
+        dispatch(resetActiveBoard());
         dispatch(closeModal());
     };
 
@@ -24,13 +39,17 @@ export default function Popover() {
                 variant="medium"
                 className="text-mediumGrey dark:text-mediumGrey"
             >
-                Are you sure you want to delete the ‘Platform Launch’ board?
+                Are you sure you want to delete the {activeBoard?.name} board?
                 This action will remove all columns and tasks and cannot be
                 reversed.
             </Text>
 
             <div className="flex w-full gap-4">
-                <Button variant="destructive" className="flex-1">
+                <Button
+                    variant="destructive"
+                    className="flex-1"
+                    onClick={handleDeleteBoard}
+                >
                     Delete
                 </Button>
                 <Button

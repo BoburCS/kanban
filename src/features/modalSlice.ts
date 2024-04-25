@@ -8,7 +8,7 @@ export interface ModalState {
         | "AddTaskForm"
         | "AddBoardForm"
         | "DeleteBoard"
-        | "DeleteTask"
+        // | "DeleteTask"
         | "ShowTask";
     task?: TaskTypes | null;
 }

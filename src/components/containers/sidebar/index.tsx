@@ -1,5 +1,5 @@
 import { useStateProvider } from "@context/StateProvider";
-import BoardList from "./BoardList";
+import BoardList from "./boardlist/BoardList";
 import SidebarBottom from "./SidebarBottom";
 import { useGetBoardsQuery } from "@services/boardApi";
 
@@ -13,12 +13,8 @@ export default function Sidebar() {
         >
             {sidebarState ? (
                 <>
-                    {isSuccess && (
-                        <>
-                            <BoardList boards={boards} />
-                            <SidebarBottom />
-                        </>
-                    )}
+                    <BoardList boards={isSuccess ? boards : []} />
+                    <SidebarBottom />
                 </>
             ) : null}
         </aside>
