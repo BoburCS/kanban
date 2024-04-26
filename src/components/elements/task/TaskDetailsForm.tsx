@@ -1,22 +1,39 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@app/store";
 import { BoardStateTypes, ColumnTypes, TaskTypes } from "../../../types";
 import Heading from "@ui/heading";
 import Text from "@ui/text";
 import MenuDots from "@icons/menu-dots.svg";
+import { showModal } from "@features/modalSlice";
 
 export default function TaskDetailsForm({ task }: { task: TaskTypes }) {
-    const { title, description, subTasks, status } = task;
+    const dispatch = useDispatch();
+    const { title, description, subTasks, status, id } = task;
 
     const { activeBoard } = useSelector(
         (state: RootState) => state.board,
     ) as BoardStateTypes;
 
+    const handleDeleteTask = (id: string) => {
+        const payload: {
+            modalType: string;
+            taskId: { id: string; title: string };
+        } = {
+            modalType: "DeleteTask",
+            taskId: { id, title },
+        };
+        dispatch(showModal(payload));
+    };
+
     return (
         <div className="flex flex-col gap-6">
             <div className="flex items-center justify-between">
                 <Heading variant="l">{title}</Heading>
-                <img src={MenuDots} alt="Icon Menu Dots" />
+                <img
+                    src={MenuDots}
+                    alt="Icon Menu Dots"
+                    onClick={() => handleDeleteTask(id)}
+                />
             </div>
             <Text
                 variant="medium"

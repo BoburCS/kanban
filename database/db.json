@@ -19,27 +19,5 @@
       ]
     }
   ],
-  "tasks": [
-    {
-      "id": "f3a5",
-      "title": "create design of kanban",
-      "description": "using figma",
-      "boardId": "37a5",
-      "subTasks": [
-        {
-          "id": "lftNSZKGcziiJGYGDo1G8",
-          "name": "dark mode"
-        },
-        {
-          "id": "NTSM7Qwy3SEYF7IujCXNL",
-          "name": "light mode"
-        },
-        {
-          "id": "LWDio4v9V6cOjqQizB9pZ",
-          "name": "mobile version"
-        }
-      ],
-      "status": "To Do"
-    }
-  ]
+  "tasks": []
 }

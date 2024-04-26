@@ -8,9 +8,10 @@ export interface ModalState {
         | "AddTaskForm"
         | "AddBoardForm"
         | "DeleteBoard"
-        // | "DeleteTask"
+        | "DeleteTask"
         | "ShowTask";
     task?: TaskTypes | null;
+    taskId?: { id: string; title: string } | null;
 }
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
     title: "",
     modalType: "",
     task: null,
+    taskId: null,
 };
 
 const modalSlice = createSlice({
@@ -29,12 +31,14 @@ const modalSlice = createSlice({
             state.title = action.payload.title;
             state.modalType = action.payload.modalType;
             state.task = action.payload.task;
+            state.taskId = action.payload.taskId;
         },
         closeModal: (state) => {
             state.isOpen = false;
             state.title = "";
             state.modalType = "";
             state.task = null;
+            state.taskId = null;
         },
     },
 });
