@@ -11,6 +11,11 @@ export default function Navbar() {
     ) as BoardStateTypes;
 
     const handleAddTask = () => {
+        if (!activeBoard) {
+            alert("First choose a board to add task");
+            return;
+        }
+
         const payload = {
             title: "Add New Task",
             modalType: "AddTaskForm",

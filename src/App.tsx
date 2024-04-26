@@ -17,7 +17,7 @@ export default function App() {
         <>
             <main className="relative flex h-screen flex-col">
                 <Navbar />
-                <div className="flex w-full flex-grow">
+                <div className={`w-full flex-grow ${sidebarState ? "main-layout" : "flex"}`}>
                     <Sidebar />
                     <Main />
                 </div>

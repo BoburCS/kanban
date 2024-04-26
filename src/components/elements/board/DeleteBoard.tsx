@@ -39,7 +39,7 @@ export default function DeleteBoard() {
                 variant="medium"
                 className="text-mediumGrey dark:text-mediumGrey"
             >
-                Are you sure you want to delete the {activeBoard?.name} board?
+                Are you sure you want to delete the "{activeBoard?.name}" board?
                 This action will remove all columns and tasks and cannot be
                 reversed.
             </Text>

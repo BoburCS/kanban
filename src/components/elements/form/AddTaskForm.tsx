@@ -12,14 +12,14 @@ import { closeModal } from "@features/modalSlice";
 import { BoardStateTypes } from "src/types";
 import { useCreateTaskMutation } from "@services/taskApi";
 
-interface StatusProps {
-    id: string;
-    title: string;
-}
-
 export default function AddTaskForm() {
     const dispatch = useDispatch();
     const [useCreateTask] = useCreateTaskMutation();
+
+    const { activeBoard, activeBoardId } = useSelector(
+        (state: RootState) => state.board,
+    ) as BoardStateTypes;
+
     const [state, setState] = React.useState({
         title: "Add New Task",
         content: {
@@ -37,17 +37,9 @@ export default function AddTaskForm() {
                 { id: "100", placeholder: "e.g. Make coffee" },
                 { id: "101", placeholder: "e.g. Make coffee" },
             ],
-            status: [
-                { id: "102", title: "To Do" },
-                { id: "103", title: "Doing" },
-                { id: "104", title: "Done" },
-            ],
+            status: activeBoard?.columns
         },
     });
-
-    const { activeBoardId } = useSelector(
-        (state: RootState) => state.board,
-    ) as BoardStateTypes;
 
     const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -61,7 +53,7 @@ export default function AddTaskForm() {
 
         const subtasks = Object.keys(data)
             .filter((key) => key.startsWith("subtask"))
-            .map((key) => ({ id: nanoid(), name: data[key] }));
+            .map((key) => ({ id: nanoid(), title: data[key], status: false }));
         
         useCreateTask({
             title: data.title,
@@ -75,13 +67,13 @@ export default function AddTaskForm() {
 
     const handleAddSubtask = (event: React.MouseEvent) => {
         event.stopPropagation();
-        setState((prevState) => ({
+        setState((prevState: any) => ({
             ...prevState,
             content: {
                 ...prevState.content,
                 subTasks: [
                     ...prevState.content.subTasks,
-                    { id: nanoid(), title: "" },
+                    { id: nanoid(), placeholder: "e.g. Make Coffee" },
                 ],
             },
         }));
@@ -99,6 +91,7 @@ export default function AddTaskForm() {
             },
         }));
     };
+
     return (
         <form
             onSubmit={handleAddTask}
@@ -186,10 +179,10 @@ export default function AddTaskForm() {
                     id="status"
                     className="w-full rounded border-[1px] border-solid border-lines px-4 py-2 text-black dark:text-white"
                 >
-                    {state.content.status.length > 0
-                        ? state.content.status.map((status: StatusProps) => (
-                              <option value={status.title} key={status.id}>
-                                  {status.title}
+                    {state?.content?.status?.length > 0
+                        ? state?.content?.status?.map((status: any) => (
+                              <option value={status.name} key={status.id} className="text-black">
+                                  {status.name}
                               </option>
                           ))
                         : null}

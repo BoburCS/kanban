@@ -48,11 +48,46 @@
 }
 
 .modal {
-    @apply w-[480px] rounded-lg border-2 border-solid border-white bg-white p-8;
+    @apply w-[480px] rounded-lg border-2 border-solid border-lines bg-white p-8 dark:border-lines;
 }
 
 input,
 textarea,
 select {
     @apply bg-transparent outline-none;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    overflow: hidden;
+}
+
+.media-scroller {
+    @apply grid gap-5;
+    grid-auto-flow: column;
+    grid-auto-columns: 280px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* overscroll-behavior-inline: contain; */
+
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
+}
+
+.media-scroller::-webkit-scrollbar {
+    @apply w-0;
+}
+
+::-webkit-scrollbar {
+    @apply w-1;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-white dark:bg-veryDarkGrey;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-primary;
 }

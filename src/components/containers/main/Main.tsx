@@ -18,7 +18,7 @@ export default function Main() {
                 {activeBoard ? (
                     <div className="flex h-full w-full items-center justify-center">
                         {board?.columns?.length > 0 ? (
-                            <div className="flex h-full w-full gap-5 p-6">
+                            <div className="h-full w-full p-6 media-scroller">
                                 {board.columns.map((column: any) => (
                                     <Column {...column} key={column.id} />
                                 ))}

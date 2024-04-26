@@ -17,7 +17,75 @@
           "name": "Done"
         }
       ]
+    },
+    {
+      "id": "a4f3",
+      "name": "Kanban",
+      "columns": [
+        {
+          "id": "HFnV6NSVWCiYu50FXTPV0",
+          "name": "To Do"
+        },
+        {
+          "id": "R9hhRXYd6egtGKgb1l8dD",
+          "name": "Doing"
+        },
+        {
+          "id": "NoOtckWx13KYhnvrVNtzv",
+          "name": "Done"
+        },
+        {
+          "id": "JCO2dKHGi4Skfxscxuyt2",
+          "name": "Review"
+        }
+      ]
+    },
+    {
+      "id": "82a8",
+      "name": "working on css",
+      "columns": [
+        {
+          "id": "_Ayln78Y0BdesgUhw1Qpb",
+          "name": "To Do"
+        },
+        {
+          "id": "tKVTKjCuiLji5lCd6wVsQ",
+          "name": "Doing"
+        },
+        {
+          "id": "wXYd4o29Vhfew5q27r4VI",
+          "name": "Done"
+        },
+        {
+          "id": "V-7c7mG6okpusiHG40Vsb",
+          "name": "Review"
+        },
+        {
+          "id": "PuF9UcWGkJBkT2oPMbT1o",
+          "name": "Production"
+        }
+      ]
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "id": "d588",
+      "title": "Take coffee break",
+      "description": "its always good to have drink",
+      "boardId": "37a5",
+      "subTasks": [
+        {
+          "id": "uGaYXoXgxaCBCdJqc4XEn",
+          "title": "make coffee",
+          "status": false
+        },
+        {
+          "id": "flfmsDGuUF532IFJgvpFb",
+          "title": "fkepof",
+          "status": true
+        }
+      ],
+      "status": "To Do"
+    }
+  ]
 }

@@ -11,7 +11,7 @@ export default function Sidebar() {
         <aside
             className={`flex h-full flex-col justify-between border-lines bg-white py-4 dark:bg-darkGrey ${sidebarState ? "w-[300px] border-r-2" : "border-r-none w-0"}`}
         >
-            {sidebarState ? (
+            {sidebarState ? ( 
                 <>
                     <BoardList boards={isSuccess ? boards : []} />
                     <SidebarBottom />
