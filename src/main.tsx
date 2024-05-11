@@ -7,11 +7,11 @@ import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <Provider store={store}>
-        <ThemeProvider>
-            <StateProvider>
-                <App />
-            </StateProvider>
-        </ThemeProvider>
-    </Provider>,
+  <Provider store={store}>
+    <ThemeProvider>
+      <StateProvider>
+        <App />
+      </StateProvider>
+    </ThemeProvider>
+  </Provider>,
 );

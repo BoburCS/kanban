@@ -3,91 +3,87 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --primary: 242, 48%, 58%; /* purple */
-        --primary-hover: #a8a4ff; /* purple hover */
+  :root {
+    --primary: 242, 48%, 58%; /* purple */
+    --primary-hover: #a8a4ff; /* purple hover */
 
-        --lines: #e4ebfa;
-        --secondary: #f4f7fd;
+    --lines: #e4ebfa;
+    --secondary: #f4f7fd;
 
-        --medium-grey: #828fa3;
-        --dark-grey: #2b2c37;
+    --medium-grey: #828fa3;
+    --dark-grey: #2b2c37;
 
-        --very-dark-grey: #20212c;
-        --black: #000112;
+    --very-dark-grey: #20212c;
+    --black: #000112;
 
-        --destructive: #EA5555; /* red */
-        --destructive-hover: 0, 100%, 80%; /* red hover */
+    --destructive: #ea5555; /* red */
+    --destructive-hover: 0, 100%, 80%; /* red hover */
 
-        --linear-gradient: linear-gradient(
-            180deg,
-            #e9effa 0%,
-            rgba(233, 239, 250, 0.5) 100%
-        );
-    }
+    --linear-gradient: linear-gradient(
+      180deg,
+      #e9effa 0%,
+      rgba(233, 239, 250, 0.5) 100%
+    );
+  }
 
-    .dark {
-        --lines: #3e3f4e;
-        --linear-gradient: linear-gradient(
-            180deg,
-            rgba(43, 44, 55, 0.25) 0%,
-            rgba(43, 44, 55, 0.125) 100%
-        );
-        /* --secondary: #2b2c37; */
-    }
+  .dark {
+    --lines: #3e3f4e;
+    --linear-gradient: linear-gradient(
+      180deg,
+      rgba(43, 44, 55, 0.25) 0%,
+      rgba(43, 44, 55, 0.125) 100%
+    );
+    /* --secondary: #2b2c37; */
+  }
 }
 
 @layer base {
-    * {
-        @apply font-PlusJakartaSans;
-    }
+  * {
+    @apply font-PlusJakartaSans;
+  }
 }
 
 .modal-overlay {
-    @apply absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center bg-black bg-opacity-70;
+  @apply absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center bg-black bg-opacity-70;
 }
 
 .modal {
-    @apply w-[480px] rounded-lg border-2 border-solid border-lines bg-white p-8 dark:border-lines;
+  @apply w-[480px] rounded-lg border-2 border-solid border-lines bg-white p-8 dark:border-lines;
 }
 
 input,
 textarea,
 select {
-    @apply bg-transparent outline-none;
+  @apply bg-transparent outline-none;
 }
 
 .main-layout {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    overflow: hidden;
+  @apply grid overflow-hidden;
+  grid-template-columns: 300px 1fr;
 }
 
 .media-scroller {
-    @apply grid gap-5;
-    grid-auto-flow: column;
-    grid-auto-columns: 280px;
+  @apply grid grid-flow-col gap-5 overflow-x-auto overflow-y-hidden;
+  grid-auto-columns: 280px;
 
-    overflow-x: auto;
-    overflow-y: hidden;
-    /* overscroll-behavior-inline: contain; */
+  /* overscroll-behavior-inline: contain; */
 
-    /* -ms-overflow-style: none; */
-    /* scrollbar-width: none; */
+  /* -ms-overflow-style: none; */
+  /* scrollbar-width: none; */
 }
 
 .media-scroller::-webkit-scrollbar {
-    @apply w-0;
+  @apply w-0;
 }
 
 ::-webkit-scrollbar {
-    @apply w-1;
+  @apply w-1;
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-white dark:bg-veryDarkGrey;
+  @apply bg-white dark:bg-veryDarkGrey;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-primary;
+  @apply rounded-lg bg-primary;
 }

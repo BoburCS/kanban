@@ -5,30 +5,32 @@ import { Column, EmptyBoard, NewColumn } from "./mainComponents";
 import { useGetBoardQuery } from "@services/boardApi";
 
 export default function Main() {
-    const { activeBoard, activeBoardId } = useSelector(
-        (state: RootState) => state.board,
-    ) as BoardStateTypes;
+  const { activeBoard, activeBoardId } = useSelector(
+    (state: RootState) => state.board,
+  ) as BoardStateTypes;
 
-    const { data: board, isSuccess } = useGetBoardQuery(activeBoardId);
+  const { data: board, isSuccess } = useGetBoardQuery(activeBoardId);
 
-    return (
-        <>
-            {isSuccess && (
-                <div className="flex w-full flex-1 flex-grow items-center justify-center bg-secondary dark:bg-veryDarkGrey">
-                {activeBoard ? (
-                    <div className="flex h-full w-full items-center justify-center">
-                        {board?.columns?.length > 0 ? (
-                            <div className="h-full w-full p-6 media-scroller">
-                                {board.columns.map((column: any) => (
-                                    <Column {...column} key={column.id} />
-                                ))}
-                                <NewColumn />
-                            </div>
-                        ) : <EmptyBoard />}
-                    </div>
-                ) : null}
+  return (
+    <>
+      {isSuccess && (
+        <div className="flex w-full flex-1 flex-grow items-center justify-center bg-secondary dark:bg-veryDarkGrey">
+          {activeBoard ? (
+            <div className="flex h-full w-full items-center justify-center">
+              {board?.columns?.length > 0 ? (
+                <div className="media-scroller h-full w-full p-6">
+                  {board.columns.map((column: any) => (
+                    <Column {...column} key={column.id} />
+                  ))}
+                  <NewColumn />
+                </div>
+              ) : (
+                <EmptyBoard />
+              )}
             </div>
-            )}
-        </>
-    );
+          ) : null}
+        </div>
+      )}
+    </>
+  );
 }

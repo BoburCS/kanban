@@ -1,44 +1,44 @@
 import React from "react";
 
 type ThemeContextType = {
-    theme: string;
-    handleTheme: () => void;
+  theme: string;
+  handleTheme: () => void;
 };
 
 const ThemeContext = React.createContext<ThemeContextType | undefined>(
-    undefined,
+  undefined,
 );
 
 export function useTheme() {
-    const context = React.useContext(ThemeContext);
-    if (!context) {
-        throw new Error("useTheme must be used within a ThemeProvider");
-    }
-    return context;
+  const context = React.useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
 }
 
 export default function ThemeProvider({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    const [theme, setTheme] = React.useState("light");
+  const [theme, setTheme] = React.useState("light");
 
-    React.useEffect(() => {
-        if (theme === "dark") {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, [theme]);
+  React.useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
+  const handleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
-    return (
-        <ThemeContext.Provider value={{ theme, handleTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
+  return (
+    <ThemeContext.Provider value={{ theme, handleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }

@@ -4,18 +4,16 @@ import { BoardTypes } from "src/types";
 import BoardListUI from "./BoardList.ui";
 
 export default function BoardList({ boards }: { boards: BoardTypes[] | [] }) {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const handleAddBoard = () => {
-        const payload = {
-            title: "Add New Board",
-            modalType: "AddBoardForm",
-        };
-
-        dispatch(showModal(payload));
+  const handleAddBoard = () => {
+    const payload = {
+      title: "Add New Board",
+      modalType: "AddBoardForm",
     };
 
-    return (
-        <BoardListUI boards={boards} handleAddBoard={handleAddBoard} />
-    );
+    dispatch(showModal(payload));
+  };
+
+  return <BoardListUI boards={boards} handleAddBoard={handleAddBoard} />;
 }

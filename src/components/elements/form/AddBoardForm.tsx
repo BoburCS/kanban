@@ -11,133 +11,120 @@ import { ColumnTypes } from "src/types";
 import { useCreateBoardMutation } from "@services/boardApi";
 
 export default function AddBoardForm() {
-    const [useCreateBoard] = useCreateBoardMutation();
-    const [state, setState] = React.useState({
-        title: "Add New Board",
-        content: {
-            title: {
-                name: "name",
-                type: "text",
-                placeholder: "e.g. Web Design",
-            },
-            columns: [
-                { id: "200", title: "To Do" },
-                { id: "201", title: "Doing" },
-                { id: "202", title: "Done" },
-            ],
-        },
+  const [useCreateBoard] = useCreateBoardMutation();
+  const [state, setState] = React.useState({
+    title: "Add New Board",
+    content: {
+      title: {
+        name: "name",
+        type: "text",
+        placeholder: "e.g. Web Design",
+      },
+      columns: [
+        { id: "200", title: "To Do" },
+        { id: "201", title: "Doing" },
+        { id: "202", title: "Done" },
+      ],
+    },
+  });
+
+  const handleAddColumn = (event: React.MouseEvent) => {
+    event?.stopPropagation();
+    setState((prevState) => ({
+      ...prevState,
+      content: {
+        ...prevState.content,
+        columns: [...prevState.content.columns, { id: nanoid(), title: "" }],
+      },
+    }));
+  };
+
+  const handleDeleteColumn = (event: React.MouseEvent, id: string) => {
+    event.stopPropagation();
+    setState((prevState) => ({
+      ...prevState,
+      content: {
+        ...prevState.content,
+        columns: prevState.content.columns.filter((column) => column.id !== id),
+      },
+    }));
+  };
+
+  const dispatch = useDispatch();
+  const handleAddBoard = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const data = Object.fromEntries(new FormData(event.currentTarget));
+
+    const columns = Object.keys(data)
+      .filter((key) => key.startsWith("column"))
+      .map((key) => ({ id: nanoid(), name: data[key] }));
+
+    useCreateBoard({
+      name: data.name as string,
+      columns: columns as ColumnTypes[],
     });
+    dispatch(closeModal());
+  };
 
-    const handleAddColumn = (event: React.MouseEvent) => {
-        event?.stopPropagation();
-        setState((prevState) => ({
-            ...prevState,
-            content: {
-                ...prevState.content,
-                columns: [
-                    ...prevState.content.columns,
-                    { id: nanoid(), title: "" },
-                ],
-            },
-        }));
-    };
+  return (
+    <form
+      onSubmit={handleAddBoard}
+      className="flex flex-col gap-6 bg-white dark:bg-darkGrey"
+    >
+      <Heading variant="l" className="text-black dark:text-white">
+        {state.title}
+      </Heading>
 
-    const handleDeleteColumn = (event: React.MouseEvent, id: string) => {
-        event.stopPropagation();
-        setState((prevState) => ({
-            ...prevState,
-            content: {
-                ...prevState.content,
-                columns: prevState.content.columns.filter(
-                    (column) => column.id !== id,
-                ),
-            },
-        }));
-    };
+      <Input
+        name={state.content.title.name}
+        placeholder={state.content.title.placeholder}
+        type={"text"}
+        disabled={true}
+      />
 
-    const dispatch = useDispatch();
-    const handleAddBoard = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        const data = Object.fromEntries(new FormData(event.currentTarget));
-
-        const columns = Object.keys(data)
-            .filter((key) => key.startsWith("column"))
-            .map((key) => ({ id: nanoid(), name: data[key] }));
-
-        useCreateBoard({
-            name: data.name as string,
-            columns: columns as ColumnTypes[],
-        });
-        dispatch(closeModal());
-    };
-
-    return (
-        <form
-            onSubmit={handleAddBoard}
-            className="flex flex-col gap-6 bg-white dark:bg-darkGrey"
+      <div>
+        <Text
+          variant="medium"
+          className="font-bold text-mediumGrey dark:text-mediumGrey"
         >
-            <Heading variant="l" className="text-black dark:text-white">
-                {state.title}
-            </Heading>
+          Columns
+        </Text>
 
-            <Input
-                name={state.content.title.name}
-                placeholder={state.content.title.placeholder}
-                type={"text"}
-                disabled={true}
-            />
-
-            <div>
-                <Text
-                    variant="medium"
-                    className="font-bold text-mediumGrey dark:text-mediumGrey"
-                >
-                    Columns
-                </Text>
-
-                <div className="flex flex-col gap-3">
-                    {state.content.columns.length > 0
-                        ? state.content.columns.map((column, index) => (
-                              <div
-                                  className="flex items-center gap-4"
-                                  key={column.id}
-                              >
-                                  <Input
-                                      name={`column${index}`}
-                                      placeholder={column.title}
-                                      type="text"
-                                      defaultValue={column.title}
-                                  />
-                                  <img
-                                      src={Delete}
-                                      alt="Delete Icon"
-                                      className="cursor-pointer"
-                                      onClick={(event) =>
-                                          handleDeleteColumn(event, column.id)
-                                      }
-                                  />
-                              </div>
-                          ))
-                        : null}
-                    <Button
-                        variant="secondary"
-                        onClick={(event) => handleAddColumn(event)}
-                        className="px-4 py-2"
-                    >
-                        <Text
-                            variant="medium"
-                            className="text-primary dark:text-primary"
-                        >
-                            +Add New Column
-                        </Text>
-                    </Button>
+        <div className="flex flex-col gap-3">
+          {state.content.columns.length > 0
+            ? state.content.columns.map((column, index) => (
+                <div className="flex items-center gap-4" key={column.id}>
+                  <Input
+                    name={`column${index}`}
+                    placeholder={column.title}
+                    type="text"
+                    defaultValue={column.title}
+                  />
+                  <img
+                    src={Delete}
+                    alt="Delete Icon"
+                    className="cursor-pointer"
+                    onClick={(event) => handleDeleteColumn(event, column.id)}
+                  />
                 </div>
-            </div>
+              ))
+            : null}
+          <Button
+            variant="secondary"
+            onClick={(event) => handleAddColumn(event)}
+            className="px-4 py-2"
+          >
+            <Text variant="medium" className="text-primary dark:text-primary">
+              +Add New Column
+            </Text>
+          </Button>
+        </div>
+      </div>
 
-            <Button variant="primary" className="py-2">
-                Create New Board
-            </Button>
-        </form>
-    );
+      <Button variant="primary" className="py-2">
+        Create New Board
+      </Button>
+    </form>
+  );
 }
