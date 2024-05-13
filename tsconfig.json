@@ -32,7 +32,8 @@
       "@elements/*": ["src/components/elements/*"],
       "@lib/*": ["src/lib/*"],
       "@app/*": ["src/app/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@constants/*": ["src/constants/*"],
     }
   },
   "include": ["src"],
