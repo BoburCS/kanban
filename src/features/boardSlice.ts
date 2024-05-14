@@ -12,7 +12,7 @@ const boardSlice = createSlice({
   reducers: {
     setActiveBoard: (state, action: { payload: BoardTypes }) => {
       state.activeBoard = action.payload;
-      state.activeBoardId = action.payload.id;
+      state.activeBoardId = action.payload._id;
     },
     resetActiveBoard: (state) => {
       state.activeBoard = null;
