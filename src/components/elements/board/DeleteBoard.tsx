@@ -5,7 +5,6 @@ import { closeModal } from "@features/modalSlice";
 import Button from "@ui/button";
 import Heading from "@ui/heading";
 import Text from "@ui/text";
-import { useDeleteAllTasksMutation } from "@services/taskApi";
 import { resetActiveBoard } from "@features/boardSlice";
 
 export default function DeleteBoard() {
@@ -17,11 +16,9 @@ export default function DeleteBoard() {
   };
 
   const [useDeleteBoard] = useDeleteBoardMutation();
-  const [useDeleteAllTasks] = useDeleteAllTasksMutation();
 
   const handleDeleteBoard = () => {
     useDeleteBoard(activeBoard?.id);
-    useDeleteAllTasks(activeBoard?.id);
     dispatch(resetActiveBoard());
     dispatch(closeModal());
   };

@@ -5,7 +5,7 @@ import { useGetBoardsQuery } from "@services/boardApi";
 
 export default function Sidebar() {
   const { sidebarState } = useStateProvider();
-  const { data: boards, isSuccess } = useGetBoardsQuery(undefined);
+  const { data, isSuccess } = useGetBoardsQuery(undefined);
 
   return (
     <aside
@@ -15,7 +15,7 @@ export default function Sidebar() {
     >
       {sidebarState ? (
         <>
-          <BoardList boards={isSuccess ? boards : []} />
+          <BoardList boards={isSuccess ? data.boards : []} />
           <SidebarBottom />
         </>
       ) : null}

@@ -18,7 +18,7 @@ export default function BoardListUI({
 
       <div>
         {boards.map((board: BoardTypes) => (
-          <Board board={board} key={board.id} />
+          <Board board={board} key={board._id} />
         ))}
       </div>
 

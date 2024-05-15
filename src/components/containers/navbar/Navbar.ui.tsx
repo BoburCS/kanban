@@ -20,7 +20,7 @@ export default function NavbarUI({
       </div>
 
       <div className="flex w-full items-center justify-between px-6">
-        <Heading variant="xl">{activeBoard?.name}</Heading>
+        <Heading variant="xl">{activeBoard?.title}</Heading>
 
         <div className="flex items-center gap-6">
           <Button variant="primary" onClick={handleAddTask}>

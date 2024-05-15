@@ -7,7 +7,6 @@ import Heading from "@ui/heading";
 import Text from "@ui/text";
 import Button from "@ui/button";
 import Delete from "@icons/delete.svg";
-import { ColumnTypes } from "src/types";
 import { useCreateBoardMutation } from "@services/boardApi";
 
 export default function AddBoardForm() {
@@ -20,8 +19,8 @@ export default function AddBoardForm() {
         type: "text",
         placeholder: "e.g. Web Design",
       },
-      columns: [
-        { id: "200", title: "To Do" },
+      statuses: [
+        { id: "200", name: "To Do" },
         { id: "201", title: "Doing" },
         { id: "202", title: "Done" },
       ],
@@ -61,8 +60,8 @@ export default function AddBoardForm() {
       .map((key) => ({ id: nanoid(), name: data[key] }));
 
     useCreateBoard({
-      name: data.name as string,
-      columns: columns as ColumnTypes[],
+      title: data.name as string,
+      statuses: columns as string[],
     });
     dispatch(closeModal());
   };

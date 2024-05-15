@@ -28,7 +28,9 @@ export default function Main() {
                 <EmptyBoard />
               )}
             </div>
-          ) : null}
+          ) : (
+            <div className="flex-1 flex-grow bg-secondary dark:bg-veryDarkGrey" />
+          )}
         </div>
       )}
     </>

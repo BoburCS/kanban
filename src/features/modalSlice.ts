@@ -1,25 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TaskTypes } from "src/types";
 
 export interface ModalState {
   isOpen: boolean;
   title?: string;
-  modalType:
-    | "AddTaskForm"
-    | "AddBoardForm"
-    | "DeleteBoard"
-    | "DeleteTask"
-    | "ShowTask";
-  task?: TaskTypes | null;
-  taskId?: { id: string; title: string } | null;
+  inputs?: { title: string; name: string; placeholder: string }[];
+  subProps?: {
+    title: string;
+    name: string;
+    subInputs: { placeholder: string }[];
+    btnTitle?: string;
+  };
+  selectProps?: { title: string; options: string[] };
+  btnTitle?: string;
 }
 
 const initialState = {
   isOpen: false,
   title: "",
-  modalType: "",
-  task: null,
-  taskId: null,
+  inputs: [],
+  subProps: {
+    title: "",
+    name: "",
+    subInputs: [],
+    btnTitle: "",
+  },
+  selectProps: {
+    title: "",
+    options: [],
+  },
+  btnTitle: "",
 };
 
 const modalSlice = createSlice({
@@ -29,16 +38,26 @@ const modalSlice = createSlice({
     showModal: (state, action) => {
       state.isOpen = true;
       state.title = action.payload.title;
-      state.modalType = action.payload.modalType;
-      state.task = action.payload.task;
-      state.taskId = action.payload.taskId;
+      state.inputs = action.payload.inputs;
+      state.subProps = action.payload.subProps;
+      state.selectProps = action.payload.selectProps;
+      state.btnTitle = action.payload.btnTitle;
     },
     closeModal: (state) => {
       state.isOpen = false;
       state.title = "";
-      state.modalType = "";
-      state.task = null;
-      state.taskId = null;
+      state.inputs = [];
+      state.subProps = {
+        title: "",
+        name: "",
+        subInputs: [],
+        btnTitle: "",
+      };
+      state.selectProps = {
+        title: "",
+        options: [],
+      };
+      state.btnTitle = "";
     },
   },
 });

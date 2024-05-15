@@ -20,11 +20,17 @@ export const boardApi = createApi({
       }),
       providesTags: ["Board"],
     }),
-    getBoard: builder.query({
-      query: (boardId: string) => ({
-        url: `/${boardId}`,
-        method: "GET",
-      }),
+    getBoard: builder.query<BoardType, string | undefined>({
+      query: (boardId) => {
+        if (boardId) {
+          return {
+            url: `/${boardId}`,
+            method: "GET",
+          };
+        } else {
+          return undefined;
+        }
+      },
       providesTags: ["Board"],
     }),
     createBoard: builder.mutation({

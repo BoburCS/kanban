@@ -20,4 +20,7 @@ export default defineConfig({
       "@constants": path.resolve(__dirname, "src/constants"),
     },
   },
+  server: {
+    port: 8080,
+  },
 });

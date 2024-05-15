@@ -19,10 +19,10 @@ export interface ColumnTypes {
     // tasks: TaskTypes[];
 }
 
-export interface BoardTypes {
-    id: string;
-    name: string;
-    columns: ColumnTypes[] | [];
+export type BoardTypes = {
+    __v: number;
+    _id: string;
+    title: string;
 }
 
 export interface BoardStateTypes {
