@@ -13,8 +13,6 @@ export default function Navbar() {
 
   const { data } = useGetBoardQuery(activeBoard?._id as string);
 
-  console.log(data)
-
   const handleAddTask = () => {
     if (!activeBoard) {
       alert("First choose a board to add task");
