@@ -4,6 +4,7 @@ import { showModal } from "@features/modalSlice";
 import NavbarUI from "./Navbar.ui";
 import { BoardStateTypes } from "../../../types";
 import { useGetBoardQuery } from "@services/boardApi";
+import { nanoid } from "@reduxjs/toolkit";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -33,15 +34,17 @@ export default function Navbar() {
         title: "Subtasks",
         name: "subTasks",
         subInputs: [
-          { placeholder: "e.g. John Doe" },
-          { placeholder: "e.g. John Doe" },
-          { placeholder: "e.g. John Doe" },
+          { placeholder: "e.g. John Doe", id: nanoid() },
+          { placeholder: "e.g. John Doe", id: nanoid() },
+          { placeholder: "e.g. John Doe", id: nanoid() },
         ],
         btnTitle: "+Add New Subtask",
       },
       selectProps: {
         title: "Status",
-        options: data?.board?.statuses.map((status: string) => status) as string[],
+        options: data?.board?.statuses.map(
+          (status: string) => status,
+        ) as string[],
       },
       btnTitle: "Create Task",
     };

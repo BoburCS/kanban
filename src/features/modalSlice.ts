@@ -7,7 +7,7 @@ export interface ModalState {
   subProps?: {
     title: string;
     name: string;
-    subInputs: { placeholder: string }[];
+    subInputs: { placeholder: string, id: string }[];
     btnTitle?: string;
   };
   selectProps?: { title: string; options: string[] };

@@ -13,7 +13,7 @@ export default function Main() {
 
   return (
     <>
-      {isSuccess && (
+      {isSuccess ? (
         <div className="flex w-full flex-1 flex-grow items-center justify-center bg-secondary dark:bg-veryDarkGrey">
           {activeBoard ? (
             <div className="flex h-full w-full items-center justify-center">
@@ -32,6 +32,8 @@ export default function Main() {
             <div className="flex-1 flex-grow bg-secondary dark:bg-veryDarkGrey" />
           )}
         </div>
+      ) : (
+        <div className="flex-1 flex-grow bg-secondary dark:bg-veryDarkGrey" />
       )}
     </>
   );
